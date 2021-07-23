@@ -8,7 +8,11 @@ const puppeteer = require('puppeteer');
     });
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(1000000);
-    await page.setViewport({ width: 1000, height: 600 });
+    const page = await browser.newPage();
+    await page.setViewport({ 
+      width: 1000, 
+      height: 600 
+    });
     await page.goto('https://www.linkedin.com');
     await page.waitForSelector('#session_key');
     await page.type('#session_key', 'camevargasrom@unal.edu.co');

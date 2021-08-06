@@ -1,11 +1,9 @@
 const AcccessModule = require("./Modules/access");
-require('dotenv').config()
+require("dotenv").config();
 
-
-const puppeteer = require('puppeteer');  
+const puppeteer = require("puppeteer");
 (async () => {
   try {
-
     //Define browser properties
     const browser = await puppeteer.launch({
       headless: false,
@@ -20,10 +18,15 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
 
     //Login process
-    var tabs = await  AcccessModule.login(page,"camilo","123456");
+    var tabs = await AcccessModule.login(
+      page,
+      "camevargasrom@unal.edu.co",
+      "XXXXXXXX"
+    );
+
+    await page.close();
 
     //Write hellow world
-
   } catch (error) {
     console.error(error);
   }
